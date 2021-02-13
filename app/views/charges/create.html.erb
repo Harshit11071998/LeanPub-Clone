@@ -1,0 +1,6 @@
+<h2>Thanks, you paid <strong><%= @amount %></strong>!</h2>
+<%= link_to "Go TO Home Page", root_path %>
+<br />
+<% @book = Book.find(LineItem.last.book_id) %>
+<%= link_to "get here", @book.pdf_file %>
+

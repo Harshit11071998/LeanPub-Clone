@@ -1,0 +1,7 @@
+one:
+  book: two
+  cart: one
+
+two:
+  product: two 
+  cart: two

@@ -1,0 +1,126 @@
+// Place all the styles related to the books controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.show-section{
+
+    background-color: white;
+
+}
+.show-container{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 60%;
+    padding: 5%;
+}
+.title{
+    align-self: center;
+}
+.show-container .bodies{
+    display: flex;
+    justify-content: space-around;
+}
+
+.about-section{
+    background-color: #efefef;
+   
+}
+.about{
+    margin: auto;
+    width: 60%;
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+}
+.about h6{
+    align-self: center;
+    font-size: 1.37em;
+    color: #8b8b8b;
+    margin-bottom: 5%;
+}
+
+
+.rangeslider{ 
+    // width: 50%; 
+} 
+  
+.myslider { 
+    -webkit-appearance: none; 
+    background: #FCF3CF  ; 
+    // width: 50%; 
+    height: 20px; 
+    opacity: 2; 
+   } 
+  
+  
+.myslider::-webkit-slider-thumb { 
+    -webkit-appearance: none; 
+    cursor: pointer; 
+    background: #34495E  ; 
+    width: 5%; 
+    height: 20px; 
+} 
+
+.myslider:hover { 
+    opacity: 1; 
+} 
+.search-page{
+    display: flex;
+    flex-direction: column;
+   
+}
+.search-page h1{
+    align-self: center;
+    margin-bottom: 5%;
+}
+.cover-detail{
+    display: flex;
+    margin-bottom: 0.2%;
+    padding: 1%;
+    border: 1px solid #eaebec;
+    border-radius: 1%;
+    padding: 1.5%;
+    // justify-content: space-between;
+}
+
+.book-detail{
+    display: flex;
+    flex-direction: column;
+    margin-left: 5%;
+}
+.book-title a{
+    font-size: 26px;
+    font-weight: bold;
+    text-decoration: none ;
+    color: black;
+}
+.book-title a:hover{
+    text-decoration: none !important;
+    background-color: none !important;
+    color: black;
+}
+.book-title{
+ font-family:"Noto Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+ text-transform: uppercase;
+ font-weight: 400;
+ color: #000000;
+}
+.book-author{
+    font-size: 20px;
+}
+.about-book{
+    margin-top: 2%;
+    font-size: 14px;
+    color: #8b8b8b;;
+}
+.search-page hr{
+    background-color: black;
+    color: black;
+}
+.cover-image img{
+    height: 170px;
+    width: 130px;
+}
+.min_price, .suggest_price{
+    color: #8b8b8b
+}

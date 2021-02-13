@@ -1,0 +1,39 @@
+<div class="container">
+<article class=" w-100 mt-5">
+  <% if notice %>
+    <aside id="notice"><%= notice %></aside>
+  <% end %>
+  <table class="table">
+    <thead>
+    <h2>Your Cart</h2>
+      </thead>
+    <% @cart.line_items.each do |line_item| %>
+      <tr>
+        <td class= "quantity" scope="row"><%= line_item.quantity %></td>
+        <td class="title" scope="row"><%= line_item.book.title %></td>
+        <td class="price" scope ="row"><%= line_item.total_price %></td>
+      </tr>
+    <% end %>
+    <tfoot>
+      <tr>
+        <th colspan="2">Total:</th>
+        <td class="price"><%= @cart.total_price %></td>
+      </tr>
+    </tfoot>
+  </table>
+  <div class="options ">
+  <%= button_to "Checkout", new_order_path,
+                method: :get,
+                class: " btn btn-info checkout" %><br>
+  <%= button_to "Empty cart", @cart, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+  </div>
+</article>
+</div>
+
+
+
+<!--
+<% @cart.line_items.each do |item| %>
+      <li><%= item.quantity %> &times; <%= item.book.title %> </li>
+    <% end %>
+-->

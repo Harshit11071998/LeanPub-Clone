@@ -1,0 +1,19 @@
+// Place all the styles related to the Carts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.fa-icon i{
+    font-size: 30em;
+    color: blue;
+    margin-left: 30%;
+    margin-top: 5%;
+}
+.empty  h2,
+        h5{
+     margin-left: 30%;
+    margin-top: 5%;
+}
+.options{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5%;
+}

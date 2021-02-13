@@ -1,0 +1,86 @@
+<p id="notice"><%= notice %></p>
+<section class="show-section">
+  <div class= "show-container">
+    <div class="title">
+      <h1 class="book-title"><%= @book.title %></h1>
+    </div>
+    <br />
+    <br />
+    <div class="bodies">
+      <div class="cover-name">
+        <div class="cover-image">
+        <%= image_tag @book.coverimage, class: "image" %>
+        </div>
+        <div class="author-name">
+            <%= @book.user.name %>
+        </div>
+      </div>
+      <div class="pricing-ecart">
+      <div class="actual_and_suggestion d-flex">
+          <div class="minimum-price text-center ">
+            <%= @book.selling_price - @book.selling_price * 0.2 %><br>
+            <span class="badge min_price">Minimum Price</span>
+          </div>
+          &nbsp&nbsp&nbsp&nbsp&nbsp
+          <div class="suggested-price text-center ">
+            <%= @book.selling_price %>
+            <br>
+            <span class="badge suggest_price">Suggested Price</span>
+          </div>
+        </div>
+      <div class="pricing">
+        <h6>YOU PAY: <span id="demo1"></span></h6>
+        <div class="rangeslider1"> 
+          <input type="range" min=<%=@book.author_price%> max=<%=@book.selling_price * 2 %> value=<%=@book.selling_price %> 
+                  class="myslider form-control w-250" id="sliderRange1">  
+       </div> 
+        <br />
+        <p>Author Earns: <span id="demo2"></span></p> 
+        <%# <div class="rangeslider2"> 
+          <input type="range" min="1" max="100" value="1"
+                  class="myslider" id="sliderRange2"> 
+          <p>Value: <span id="demo2"></span></p> 
+       </div>  %>
+
+      </div>
+      <div class="ecart">
+        <span><%= button_to "Add to cart", line_items_path(book_id: @book.id), class: "btn btn-primary btn-block" %></span>
+      </div> 
+      </div>
+    </div>
+  </div>
+</section>
+<br />
+<section class="about-section">
+<div class="about">  
+  <h6>About The Book</h6>
+  <p>
+  <%=render "view_book"%>
+  <%= @book.about %>
+  </p>
+</div>
+</section>
+<%= link_to "view", @book.pdf_file%>
+<!-- <%= link_to "Edit", edit_book_path(@book) %> |
+<%= link_to "Back", books_path %> -->
+<script> 
+  var rangeslider1 = document.getElementById("sliderRange1");
+  var rangeslider2 = document.getElementById("sliderRange2"); 
+  var output1 = document.getElementById("demo1");
+  var output2 = document.getElementById("demo2"); 
+  output1.innerHTML = parseInt(rangeslider1.value); 
+  output2.innerHTML = parseInt(rangeslider1.value) - parseInt(rangeslider1.value*0.2)
+  rangeslider1.oninput = function() { 
+    output1.innerHTML = this.value; 
+    output2.innerHTML = parseInt(rangeslider1.value) - parseInt(rangeslider1.value*0.2)
+    console.log(output1.innerHTML)
+  }
+  // rangeslider2 = output2.innerHTML
+  // rangeslider2.output2.innerHTML
+  // rangeslider2.oninput = function() { 
+  //   // output1.innerHTML = this.value; 
+  //   // output2.innerHTML = parseInt(rangeslider1.value) - parseInt(rangeslider1.value*0.2)
+  //   output2.innerHTML
+  // } 
+  // alert(output2.innerHTML)
+</script> 

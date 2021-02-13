@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+ <div class="container">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <%= link_to root_path do %>
+      <%= image_tag "icon.png", class: "navbar-brand core-sprite hide-text" %>
+    <% end %>
+    <%= link_to "Books", recent_book_path %>
+    <a class="nav-link explore-icon hide-text" href="#">Bundles</a>
+    <form class="form-inline my-2 my-lg-0 " action="<%= search_path %>">
+      <input class="form-control mr-sm-2 search" type="Text" placeholder="Search Leanpub" aria-label="Search" name="search_key" >
+      <%= button_to "", search_path, class: "btn btn-default" %>
+     </form>
+      <% if session[:cart_id] == nil %>
+      <%= link_to "<i class='fa fa-shopping-cart'></i>".html_safe, carts_path %>
+      <% else %>
+        <%= link_to "<i class='fa fa-shopping-cart'></i>".html_safe, cart_path(session[:cart_id]) %>
+      <% end %>
+      <div class="dropdown">
+        <button class="dropbtn">&#9776</button>
+        <div class="dropdown-content">
+          <% if user_signed_in? %>
+            <%= link_to "Create Book", new_book_path %>
+            <br>
+            <%= current_user.email %>
+            <br>
+            <%= link_to "Email-settings", edit_user_registration_path(current_user), class: "nav-item profile-icon hide-text" %>
+            <%= link_to "logout", destroy_user_session_path, method: :delete, class: "no-text-decoration" %>
+          <% else %>
+            <%= link_to "sign in", new_user_session_path %>
+            <%= link_to "sign up", new_user_registration_path %>
+          <% end %>
+          <a class="nav-item  wishlist-icon" href="#">wishlist</a>
+        </div>
+      </div>
+     </div>
+  </div>
+</nav>
